@@ -65,7 +65,7 @@ Explicitly enable rule(s) that is (are) not enabled by default:
 Explicitly disable rule(s) that is (are) enabled by default:
 
  // don't allow duration to be coerced from integer (number of seconds)
- ["duration", {"x.perl.coerce_rules": ["-float_secs"]}]
+ ["duration", {"x.perl.coerce_rules": ["!float_secs"]}]
 
 =head2 Expression
 
