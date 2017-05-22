@@ -17,9 +17,9 @@ This POD also contains examples of schemas.
 
 The examples are written in JSON with Javascript-style comments (C<// comment>).
 
-=head2 Simple
+=head2 Various simple examples
 
- # integer, optional
+ // integer, optional
  "int"
 
  // required integer
@@ -53,7 +53,36 @@ The examples are written in JSON with Javascript-style comments (C<// comment>).
  ["byte", {"!div_by": 3}]
 
 
+=head2 Type: array
+
+ // minimum number of elements
+ ["array*", {"min_len": 1}]
+
+ // maximum number of elements
+ ["array*", {"max_len": 10}]
+
+
+=head2 Type: hash
+
+ // hash must only contain keys a, b, or c
+ // Valid: {}, {"a": 1}, {"a": 1, "b": "x", "c": [1]}
+ // Invalid: {"d": 1} (unknown key), {"a": 1.1} (key 'a' is not int)
+ ["hash", {"keys": {"a": "int", "b": "str*", "c": ["array", "min_len", 1]}}]
+
+ // hash can contain a, b, c or other keys
+ // Valid: {"d": 1}, {"d": null}
+ // Invalid: {"a": 1.1} (key 'a' is not int)
+ ["hash", {"keys": {"a": "int", "b": "str*", "c": ["array", "min_len", 1]}, "keys.restrict": 0}]
+
+ // hash must contain keys a, b; can contain also c but no other keys
+ ["hash", {"req_keys": ["a","b"], "keys": {"a": "int", "b": "str*", "c": ["array", "min_len", 1]}}]
+
+ // hash must contain keys a, b; can contain c or other keys
+ ["hash", {"req_keys": ["a","b"], "keys": {"a": "int", "b": "str*", "c": ["array", "min_len", 1]}, "keys.restrict": 0}]
+
+
 =head2 Clause attribute
+
 
 =head2 Coercion rule
 
@@ -67,9 +96,12 @@ Explicitly disable rule(s) that is (are) enabled by default:
  // don't allow duration to be coerced from integer (number of seconds)
  ["duration", {"x.perl.coerce_rules": ["!float_secs"]}]
 
+
 =head2 Expression
 
+
 =head2 Function
+
 
 =head2 Merging
 
