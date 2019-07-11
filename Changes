@@ -1,20 +1,20 @@
-0.05    2017-05-22 (PERLANCAR)
+0.05    2017-05-22  Released-By: PERLANCAR
 
 	- Add some array and hash examples, including the usage of
 	  keys.restrict attribute.
 
 
-0.04    2017-03-09 (PERLANCAR)
+0.04    2017-03-09  Released-By: PERLANCAR
 
 	- Fix coercion example.
 
 
-0.03    2017-03-09 (PERLANCAR)
+0.03    2017-03-09  Released-By: PERLANCAR
 
 	- Move examples from Sah/Examples.pod from the Sah distribution.
 
 
-0.02    2015-09-06 (PERLANCAR)
+0.02    2015-09-06  Released-By: PERLANCAR
 
 	- No functional changes.
 
@@ -23,6 +23,6 @@
 	  requirement.
 
 
-0.01     2015-03-26 (PERLANCAR)
+0.01     2015-03-26  Released-By: PERLANCAR
 
          - First release.
